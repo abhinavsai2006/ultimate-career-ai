@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Ultimate AI Career Advisor - World's Most Advanced Career Assessment</title>
+    <meta name="description" content="Experience the world's most stunning AI-powered career advisor with premium UI/UX, interactive assessments, and personalized recommendations">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- jsPDF for PDF export -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Enhanced Particle Background -->
+    <div class="particle-background" id="particleCanvas"></div>
+    
+    <!-- Premium Navigation -->
+    <nav class="navbar glass-effect">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🎯</span>
+                <span class="logo-text">Ultimate Career AI</span>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Stunning Landing Experience -->
+        <section id="landing" class="page landing-page active">
+            <div class="hero-container">
+                <div class="floating-stats">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-info">
+                            <div class="stat-number">35</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">🚀</div>
+                        <div class="stat-info">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Careers</div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">🧠</div>
+                        <div class="stat-info">
+                            <div class="stat-number">AI</div>
+                            <div class="stat-label">Powered</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-content">
+                    <div class="hero-badge glass-card">
+                        <span class="badge-icon">✨</span>
+                        <span>World's Most Advanced Career Advisor</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Discover Your Perfect</span><br>
+                        <span class="highlight-text">Career Path</span><br>
+                        <span class="gradient-text">with AI Precision</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Experience the most advanced career assessment powered by cutting-edge AI technology. 
+                        Get personalized recommendations, comprehensive skill analysis, and your complete professional roadmap in just 15 minutes.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg btn-magnetic" id="startAssessment">
+                            <span class="btn-text">Start Your Journey</span>
+                            <span class="btn-icon">🚀</span>
+                            <div class="btn-ripple"></div>
+                        </button>
+                        <button class="btn btn-outline btn-lg preview-btn">
+                            <span class="btn-text">Preview Assessment</span>
+                            <span class="btn-icon">👀</span>
+                        </button>
+                    </div>
+                    
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <span>15-min Assessment</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎨</span>
+                            <span>Premium UI/UX</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>AI Analytics</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🏆</span>
+                            <span>Personalized Roadmap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Assessment Intro -->
+        <section id="intro" class="page assessment-intro">
+            <div class="intro-container">
+                <div class="intro-header glass-card">
+                    <h2 class="intro-title">Your Career Discovery Journey</h2>
+                    <p class="intro-subtitle">35 expertly crafted questions across 5 premium dimensions</p>
+                </div>
+                
+                <div class="assessment-preview">
+                    <div class="preview-section">
+                        <div class="section-card glass-card">
+                            <div class="section-icon">💻</div>
+                            <h3>Technical Skills</h3>
+                            <p>8 questions • Interactive skill matrices with real-time feedback</p>
+                            <div class="progress-preview">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-section">
+                        <div class="section-card glass-card">
+                            <div class="section-icon">🤝</div>
+                            <h3>Soft Skills</h3>
+                            <p>7 questions • Premium scenario simulations with AI insights</p>
+                            <div class="progress-preview">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-section">
+                        <div class="section-card glass-card">
+                            <div class="section-icon">🧠</div>
+                            <h3>Personality</h3>
+                            <p>10 questions • Interactive trait mapping with emoji scales</p>
+                            <div class="progress-preview">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-section">
+                        <div class="section-card glass-card">
+                            <div class="section-icon">⭐</div>
+                            <h3>Career Interests</h3>
+                            <p>6 questions • Immersive environment cards with animations</p>
+                            <div class="progress-preview">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-section">
+                        <div class="section-card glass-card">
+                            <div class="section-icon">🎯</div>
+                            <h3>Values Assessment</h3>
+                            <p>4 questions • Drag-and-drop ranking with smooth animations</p>
+                            <div class="progress-preview">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="intro-actions">
+                    <button class="btn btn-primary btn-lg btn-magnetic" id="beginAssessment">
+                        <span class="btn-text">Begin Assessment</span>
+                        <span class="btn-icon">🎯</span>
+                        <div class="btn-ripple"></div>
+                    </button>
+                </div>
+                
+                <div class="time-estimate glass-card">
+                    <span class="estimate-icon">⏱️</span>
+                    <span>Estimated time: 12-15 minutes</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Assessment Questions -->
+        <section id="assessment" class="page assessment-page">
+            <div class="assessment-container">
+                <!-- Enhanced Progress Header -->
+                <div class="progress-header glass-card">
+                    <div class="progress-info">
+                        <div class="progress-stats">
+                            <span class="current-question">1</span>
+                            <span class="question-separator">of</span>
+                            <span class="total-questions">35</span>
+                        </div>
+                        <div class="progress-percentage">3%</div>
+                    </div>
+                    <div class="progress-bar-main">
+                        <div class="progress-fill-main" style="width: 2.86%"></div>
+                    </div>
+                    <div class="section-indicator">
+                        <span class="current-section">Technical Skills</span>
+                        <span class="section-progress">Question 1 of 8</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Question Container -->
+                <div class="question-container">
+                    <div class="question-card glass-card" id="questionCard">
+                        <div class="question-header">
+                            <div class="question-category">Technical Skills</div>
+                            <div class="question-type">Interactive Skills Matrix</div>
+                        </div>
+                        
+                        <div class="question-content">
+                            <h3 class="question-title">Rate your proficiency in these programming languages:</h3>
+                            
+                            <!-- Dynamic question content will be inserted here -->
+                            <div class="question-body" id="questionBody">
+                                <!-- Premium interactive content will be generated here -->
+                            </div>
+                        </div>
+                        
+                        <div class="question-actions">
+                            <button class="btn btn-outline" id="prevBtn" disabled>
+                                <span class="btn-icon">←</span>
+                                <span class="btn-text">Previous</span>
+                            </button>
+                            <button class="btn btn-primary btn-magnetic" id="nextBtn" disabled>
+                                <span class="btn-text">Next</span>
+                                <span class="btn-icon">→</span>
+                                <div class="btn-ripple"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Processing with Premium Animations -->
+        <section id="processing" class="page processing-page">
+            <div class="processing-container">
+                <div class="processing-visual">
+                    <div class="ai-brain">
+                        <div class="brain-core"></div>
+                        <div class="brain-connections">
+                            <div class="connection connection-1"></div>
+                            <div class="connection connection-2"></div>
+                            <div class="connection connection-3"></div>
+                            <div class="connection connection-4"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="processing-content">
+                    <h2 class="processing-title">AI Analyzing Your Profile</h2>
+                    <p class="processing-subtitle" id="processingText">Initializing advanced neural networks...</p>
+                    
+                    <div class="processing-progress">
+                        <div class="progress-ring">
+                            <svg class="progress-svg" width="120" height="120">
+                                <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="transparent"/>
+                                <circle cx="60" cy="60" r="54" stroke="url(#progressGradient)" stroke-width="8" fill="transparent" 
+                                        stroke-dasharray="339.292" stroke-dashoffset="339.292" id="progressCircle"/>
+                                <defs>
+                                    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#6366f1"/>
+                                        <stop offset="50%" style="stop-color:#8b5cf6"/>
+                                        <stop offset="100%" style="stop-color:#d946ef"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="progress-text">
+                                <span class="progress-percent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-steps">
+                        <div class="analysis-step active" id="step1">
+                            <div class="step-icon">💻</div>
+                            <span>Processing technical competencies with ML algorithms</span>
+                        </div>
+                        <div class="analysis-step" id="step2">
+                            <div class="step-icon">🤝</div>
+                            <span>Analyzing soft skills and leadership potential</span>
+                        </div>
+                        <div class="analysis-step" id="step3">
+                            <div class="step-icon">🧠</div>
+                            <span>Mapping personality traits and cognitive patterns</span>
+                        </div>
+                        <div class="analysis-step" id="step4">
+                            <div class="step-icon">⭐</div>
+                            <span>Evaluating career interests and value alignment</span>
+                        </div>
+                        <div class="analysis-step" id="step5">
+                            <div class="step-icon">🎯</div>
+                            <span>Generating personalized career recommendations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stunning Results Showcase -->
+        <section id="results" class="page results-page">
+            <div class="results-container">
+                <div class="results-header glass-card">
+                    <div class="celebration-icon">🎉</div>
+                    <h2 class="results-title">Your Perfect Career Matches</h2>
+                    <p class="results-subtitle">AI-powered recommendations tailored specifically for your unique profile</p>
+                </div>
+                
+                <div class="matches-grid" id="matchesGrid">
+                    <!-- Premium career match cards will be generated here -->
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn btn-primary btn-lg btn-magnetic" id="exploreMoreBtn">
+                        <span class="btn-text">Explore Advanced Analytics</span>
+                        <span class="btn-icon">📊</span>
+                        <div class="btn-ripple"></div>
+                    </button>
+                    <button class="btn btn-outline btn-lg" id="exportBtn">
+                        <span class="btn-text">Export Premium Report</span>
+                        <span class="btn-icon">📄</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Analytics Dashboard -->
+        <section id="dashboard" class="page dashboard-page">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">Career Intelligence Dashboard</h2>
+                    <p class="dashboard-subtitle">Your complete professional development overview with AI insights</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card glass-card">
+                        <h3>🎯 Skills Radar Analysis</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="skillsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card glass-card">
+                        <h3>🧠 Personality Profile</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="personalityChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card glass-card">
+                        <h3>🚀 Career Match Distribution</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="matchChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card glass-card learning-path">
+                        <h3>🎓 Personalized Learning Roadmap</h3>
+                        <div class="learning-timeline" id="learningTimeline">
+                            <!-- AI-generated learning steps will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-actions">
+                    <button class="btn btn-primary btn-lg" id="retakeBtn">
+                        <span class="btn-text">Retake Assessment</span>
+                        <span class="btn-icon">🔄</span>
+                    </button>
+                    <button class="btn btn-outline btn-lg" id="shareBtn">
+                        <span class="btn-text">Share Results</span>
+                        <span class="btn-icon">📤</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Premium Milestone Modal -->
+    <div class="modal milestone-modal hidden" id="milestoneModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card">
+            <div class="milestone-visual">
+                <div class="milestone-icon" id="milestoneIcon">🎉</div>
+                <div class="milestone-effects">
+                    <div class="effect-ring"></div>
+                    <div class="effect-particles"></div>
+                </div>
+            </div>
+            <h3 class="milestone-title" id="milestoneTitle">Milestone Achieved!</h3>
+            <p class="milestone-message" id="milestoneMessage">Congratulations on your amazing progress in this career discovery journey!</p>
+            <button class="btn btn-primary btn-lg" id="continueMilestone">
+                <span class="btn-text">Continue Journey</span>
+                <span class="btn-icon">→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Enhanced Export Modal -->
+    <div class="modal export-modal hidden" id="exportModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card">
+            <h3>Export Your Premium Results</h3>
+            <p>Choose your preferred format for your comprehensive career analysis report</p>
+            <div class="export-options">
+                <button class="export-option glass-card" data-format="pdf">
+                    <div class="option-icon">📄</div>
+                    <div class="option-info">
+                        <div class="option-title">PDF Report</div>
+                        <div class="option-desc">Comprehensive 15-page career analysis with charts</div>
+                    </div>
+                </button>
+                <button class="export-option glass-card" data-format="json">
+                    <div class="option-icon">📊</div>
+                    <div class="option-info">
+                        <div class="option-title">JSON Data</div>
+                        <div class="option-desc">Raw assessment data for developers</div>
+                    </div>
+                </button>
+                <button class="export-option glass-card" data-format="linkedin">
+                    <div class="option-icon">💼</div>
+                    <div class="option-info">
+                        <div class="option-title">LinkedIn Ready</div>
+                        <div class="option-desc">Formatted summary for your professional profile</div>
+                    </div>
+                </button>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="cancelExport">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Real-time Feedback System -->
+    <div class="feedback-system" id="feedbackSystem">
+        <!-- Real-time feedback notifications will appear here -->
+    </div>
+
+    <!-- Premium Loading Overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+        </div>
+        <div class="loading-text">Processing with AI...</div>
+    </div>
+
+    <script src="app.js"></script>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <span class="footer-logo">🪐</span>
+                    <span class="footer-title">Ultimate Career AI</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-icon" title="Twitter"><span>🐦</span></a>
+                    <a href="#" class="footer-social-icon" title="LinkedIn"><span>💼</span></a>
+                    <a href="#" class="footer-social-icon" title="GitHub"><span>🌟</span></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Ultimate Career AI. All rights reserved.</span>
+            </div>
+        </footer>
+    </body>
+</html>

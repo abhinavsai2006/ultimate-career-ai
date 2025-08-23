@@ -1,0 +1,5 @@
+
+# App Hosting backend configuration for Cloud Run
+backends:
+  - id: ai-career-advisor
+    source: ./gemini-cloudrun

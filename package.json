@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@firebasegen/example-connector": "file:dataconnect-generated/js/example-connector",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "firebase": "^12.1.0",
+    "nodemailer": "^7.0.5",
+    "pdf-lib": "^1.17.1"
+  }
+}
