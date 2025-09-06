@@ -106,5 +106,5 @@ MIT License
 ---
 
 <p align="center">
-  <b>Made with ❤️ by Abhinav Sai and contributors.</b>
+  <b></b>
 </p>
