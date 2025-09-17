@@ -1,12 +1,29 @@
 {
+  "name": "elite-career-advisor-ultimate",
+  "version": "1.0.0",
+  "description": "Ultimate Career AI Advisor",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@firebasegen/example-connector": "file:dataconnect-generated/js/example-connector",
     "@google/generative-ai": "^0.24.1",
     "axios": "^1.11.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "firebase": "^12.1.0",
     "nodemailer": "^7.0.5",
-    "pdf-lib": "^1.17.1"
+    "pdf-lib": "^1.17.1",
+    "vite": "^7.1.5"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run minify-html && npm run minify-js && npm run minify-css",
+    "minify-html": "npx html-minifier-terser public/index.html -o public/index.html --collapse-whitespace --remove-comments --minify-js false --minify-css false",
+    "minify-js": "npx uglify-js public/app.js -o public/app.js && npx uglify-js public/gemini.js -o public/gemini.js",
+    "minify-css": "npx cleancss -o public/style.css public/style.css"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "uglify-js": "^3.19.3"
   }
 }
